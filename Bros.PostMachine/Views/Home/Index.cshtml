@@ -1,101 +1,97 @@
-﻿
+﻿@model Bros.PostMachine.Models.SocialViewModel
 
 <div class="container">
-    <section class="home col-12">
-        <div class="settings col-4">
-            <div class="settings-title">
-                <h4 class="title-text">Connections Settings</h4>
-            </div>
-            <div class="settings-box">
-                <div class="settings-box__title">VK</div>
-                <div class="settings-box__form">
-                    <form class="settings-form form-vk" id="#" method="post" enctype="multipart/form-data">
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+    <form class="settings-form form-vk" id="#" method="post" enctype="multipart/form-data" asp-controller="Content" asp-action="Index">
+        <section class="home col-12">
+            <div class="settings col-4">
+                <div class="settings-title">
+                    <h4 class="title-text">Connections Settings</h4>
+                </div>
+
+
+                <div class="settings-box">
+                    <div class="settings-box__title">VK</div>
+                    <div class="settings-box__form">
+                        <input asp-for="@Model.VkViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
+                        <input asp-for="@Model.VkViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="text" />
+                        <input asp-for="@Model.VkViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
+                        <input asp-for="@Model.VkViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
                         <div>
                             <label id="#" class="alert-danger m-1"></label>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="settings-box">
-                <div class="settings-box__title">Facebook</div>
-                <div class="settings-box__form">
-                    <form class="settings-form form-facebook" id="#" method="post" enctype="multipart/form-data">
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                <div class="settings-box">
+                    <div class="settings-box__title">Facebook</div>
+                    <div class="settings-box__form">
+                        <input asp-for="@Model.FacebookViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
+                        <input asp-for="@Model.FacebookViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="text" />
+                        <input asp-for="@Model.FacebookViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
+                        <input asp-for="@Model.FacebookViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
                         <div>
                             <label id="#" class="alert-danger m-1"></label>
                         </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="settings-box">
-                <div class="settings-box__title">Twitter</div>
-                <div class="settings-box__form">
-                    <form class="settings-form form-twitter" id="#" method="post" enctype="multipart/form-data">
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
-                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                <div class="settings-box">
+                    <div class="settings-box__title">Twitter</div>
+                    <div class="settings-box__form">
+                        <input asp-for="@Model.TwitterViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
+                        <input asp-for="@Model.TwitterViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="text" />
+                        <input asp-for="@Model.TwitterViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
+                        <input asp-for="@Model.TwitterViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
                         <div>
                             <label id="#" class="alert-danger m-1"></label>
                         </div>
-                    </form>
+                    </div>
                 </div>
+
             </div>
 
+            <div class="content col-8">
+                <div class="content-title">
+                    <h4 class="title-text">Content</h4>
+                </div>
+                <div class="content-block content-image">
+                    <div class="content-text">Image</div>
+                    <input asp-for="@Model.ContentViewModel.Image" type="file" class="content-input content-image-input">
+                </div>
+
+                <div class="content-block content-title">
+                    <div class="content-text">Title</div>
+                    <input asp-for="@Model.ContentViewModel.Title" type="text" class="content-input content-title-input" value="">
+                </div>
+
+                <div class="content-block content-image">
+                    <div class="content-text mar-bt">Description</div>
+                    <textarea asp-for="@Model.ContentViewModel.Message" name="description" class="content-input content-description-input" cols="50" row="10" placeholder="Write your comment" value="" style="padding-top:13px"></textarea>
+                </div>
+                <div>
+                    <label id="#" class="alert-danger m-1"></label>
+                </div>
+
+                <input type="submit" class="button-btn btn-content auth" id="#" value="SEND"/>
+
+            </div>
+        </section>
+
+        <div class="social-block">
+            <ul class="social">
+                <li class="social__item vk selected" selected="true">
+                    <img class="vk-image" src="~/img/vk.svg" alt="vk" />
+                    <i class="fa fa-vk"></i>
+                </li>
+                <li class="social__item facebook selected" selected="true">
+                    <img class="facebook-image" src="~/img/facebook.svg" alt="facebook" />
+                    <i class="fa fa-facebook"></i>
+                </li>
+                <li class="social__item twitter selected" selected="true">
+                    <img class="twitter-image" src="~/img/twitter.svg" alt="twitter" />
+                    <i class="fa fa-twitter"></i>
+                </li>
+            </ul>
         </div>
-
-        <div class="content col-8">
-            <div class="content-title">
-                <h4 class="title-text">Content</h4>
-            </div>
-
-            <div class="content-block content-image">
-                <div class="content-text">Image</div>
-                <input type="file" class="content-input content-image-input">
-            </div>
-
-            <div class="content-block content-title">
-                <div class="content-text">Title</div>
-                <input type="text" class="content-input content-title-input">
-            </div>
-
-            <div class="content-block content-image">
-                <div class="content-text mar-bt">Description</div>
-                <input type="text" class="content-input content-description-input">
-                @*<div class="address-delivery__comment">
-                    <textarea name="comment" class="content-description-input" cols="30" row="4" placeholder="Write your comment" value="" style="padding-top:13px"></textarea>
-                </div>*@
-            </div>
-
-            <button type="submit" class="button-btn btn-content auth" id="#">SEND</button>
-
-        </div>
-    </section>
-
-    <div class="social-block">
-        <ul class="social">
-            <li class="social__item vk">
-                <img class="vk-image" src="~/img/vk.svg" alt="vk" />
-                <i class="fa fa-vk"></i>
-            </li>
-            <li class="social__item facebook">
-                <img class="facebook-image" src="~/img/facebook.svg" alt="facebook" />
-                <i class="fa fa-facebook"></i>
-            </li>
-            <li class="social__item twitter">
-                <img class="twitter-image" src="~/img/twitter.svg" alt="twitter" />
-                <i class="fa fa-twitter"></i>
-            </li>
-        </ul>
-    </div>
-
+    </form>
 </div>

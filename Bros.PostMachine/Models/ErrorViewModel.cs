@@ -1,5 +1,3 @@
-using System;
-
 namespace Bros.PostMachine.Models
 {
     public class ErrorViewModel

@@ -130,6 +130,7 @@ body {
 .title-text {
     color: #FFFFFF;
     margin: 20px;
+    text-align: center;
 }
 
 .settings-box {
@@ -169,6 +170,10 @@ body {
     border-radius: 5px;
 }
 
+.content-title {
+    width: 74%;
+}
+
 .content-image-input::-webkit-file-upload-button {
     visibility: hidden;
 }
@@ -177,7 +182,6 @@ body {
     display: flex;
     align-items: center;
     margin: 24px;
-    width: 70%;
 }
 
 .content-text {
@@ -198,6 +202,10 @@ body {
 
 .mar-bt {
     margin-bottom: 70%;
+}
+
+.content-image {
+    width: 74%;
 }
 
 .content-image-input {
@@ -242,6 +250,10 @@ body {
         background-color: rgba(149, 51, 165, 0.25);
     }
 
+.form-publisher {
+    width: 77%;
+}
+
 .social {
     color: #fff;
     list-style: none;
@@ -273,16 +285,22 @@ body {
     cursor: pointer;
 }
 
-.facebook:hover {
-    border-color: #22519d;
-    box-shadow: 0px 0px 25px #22519d;
-    color: #22519d;
+.selected {
+    border-color: #D500F9;
+    box-shadow: 0px 0px 25px #D500F9;
+    color: #D500F9;
 }
 
-.vk:hover {
+.facebook:hover {
     border-color: #185bc1;
     box-shadow: 0px 0px 25px #185bc1;
     color: #185bc1;
+}
+
+.vk:hover {
+    border-color: #22519d;
+    box-shadow: 0px 0px 25px #22519d;
+    color: #22519d;
 }
 
 .twitter:hover {
@@ -311,8 +329,8 @@ body {
 }
 
 .vk-image {
-    height: 42px;
-    width: 48px;
+    height: 48px;
+    width: 52px;
 }
 
 .twitter-image {
