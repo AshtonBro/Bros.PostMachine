@@ -20,6 +20,7 @@ namespace Bros.PostMachine.Controllers
 
         public IActionResult Index()
         {
+            Console.WriteLine("hello Index");
             return View();
         }
 
