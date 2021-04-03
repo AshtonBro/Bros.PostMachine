@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "tGSJAL2LLcYhSwdPxz3h5UuGJpazvk6Qzo3a6FqG3llfHjWP10wSXMDmLByMiLKPjnjJ0wEhgBH7q6hj+4zabQ==",
+  "dgSpecHash": "XSw31BIM0Vf5pvZV681nCCMoGnWWEBtikl57lsdHJj1G/H5M6iwlwjdvMbMBOxNTPxyN9RMcygNKpfH49agPjg==",
   "success": true,
   "projectFilePath": "D:\\Web-developer\\3. С#\\VS_source\\Bros.PostMachine\\Bros.PostMachine\\Bros.PostMachine.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Evgenii Solovev\\.nuget\\packages\\htmlagilitypack\\1.11.31\\htmlagilitypack.1.11.31.nupkg.sha512",
+    "C:\\Users\\Evgenii Solovev\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",
+    "C:\\Users\\Evgenii Solovev\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Evgenii Solovev\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Evgenii Solovev\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Evgenii Solovev\\.nuget\\packages\\vknet\\1.61.0\\vknet.1.61.0.nupkg.sha512"
+  ],
   "logs": []
 }

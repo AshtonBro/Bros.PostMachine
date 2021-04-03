@@ -12,10 +12,22 @@
                 <div class="settings-box">
                     <div class="settings-box__title">VK</div>
                     <div class="settings-box__form">
-                        <input asp-for="@Model.VkViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                        <input asp-for="@Model.VkViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="text" />
-                        <input asp-for="@Model.VkViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
-                        <input asp-for="@Model.VkViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                        <div>
+                            <input asp-for="@Model.VkViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
+                            <span asp-validation-for="@Model.VkViewModel.Login" class="span-form-setting"></span>
+                        </div>
+                        <div>
+                            <input asp-for="@Model.VkViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
+                            <span asp-validation-for="@Model.VkViewModel.Password" class="span-form-setting"></span>
+                        </div>
+                        <div>
+                            <input asp-for="@Model.VkViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
+                            <span asp-validation-for="@Model.VkViewModel.AccessToken" class="span-form-setting"></span>
+                        </div>
+                        <div>
+                            <input asp-for="@Model.VkViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                            <span asp-validation-for="@Model.VkViewModel.ApplicationId" class="span-form-setting"></span>
+                        </div>
                         <div>
                             <label id="#" class="alert-danger m-1"></label>
                         </div>
@@ -26,7 +38,7 @@
                     <div class="settings-box__title">Facebook</div>
                     <div class="settings-box__form">
                         <input asp-for="@Model.FacebookViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                        <input asp-for="@Model.FacebookViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="text" />
+                        <input asp-for="@Model.FacebookViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
                         <input asp-for="@Model.FacebookViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
                         <input asp-for="@Model.FacebookViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
                         <div>
@@ -39,7 +51,7 @@
                     <div class="settings-box__title">Twitter</div>
                     <div class="settings-box__form">
                         <input asp-for="@Model.TwitterViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                        <input asp-for="@Model.TwitterViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="text" />
+                        <input asp-for="@Model.TwitterViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
                         <input asp-for="@Model.TwitterViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
                         <input asp-for="@Model.TwitterViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
                         <div>
@@ -65,14 +77,16 @@
                 </div>
 
                 <div class="content-block content-image">
-                    <div class="content-text mar-bt">Description</div>
-                    <textarea asp-for="@Model.ContentViewModel.Message" name="description" class="content-input content-description-input" cols="50" row="10" placeholder="Write your comment" value="" style="padding-top:13px"></textarea>
+                    <div class="content-text">Message</div>
+                    @*<input asp-for="@Model.ContentViewModel.Message" type="text" class="content-input content-description-input" value="">*@
+                    @Html.TextAreaFor(model => model.ContentViewModel.Message, new { cols = 50, @rows = 10, @class = "content-input content-description-input" })
+                    @*<textarea asp-for="@Model.ContentViewModel.Message" type="text" class="content-input content-description-input" cols="50" row="10" placeholder="Write your comment" value="" style="padding-top:13px"></textarea>*@
                 </div>
                 <div>
                     <label id="#" class="alert-danger m-1"></label>
                 </div>
 
-                <input type="submit" class="button-btn btn-content auth" id="#" value="SEND"/>
+                <input type="submit" class="button-btn btn-content auth" id="#" value="SEND" />
 
             </div>
         </section>
@@ -95,3 +109,9 @@
         </div>
     </form>
 </div>
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

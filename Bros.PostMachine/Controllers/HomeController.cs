@@ -18,7 +18,17 @@ namespace Bros.PostMachine.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var socialViewModel = new SocialViewModel();
+
+            socialViewModel.VkViewModel = new VkViewModel()
+            {
+                Login = CustomSettings.Instance.VkLogin,
+                Password = CustomSettings.Instance.VkPassword,
+                ApplicationId = CustomSettings.Instance.VkApplicationId,
+                AccessToken = CustomSettings.Instance.VkAccessToken
+            };
+
+            return View(socialViewModel);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

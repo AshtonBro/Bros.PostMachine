@@ -43,6 +43,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "VkNet": {
+              "target": "Package",
+              "version": "[1.61.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
