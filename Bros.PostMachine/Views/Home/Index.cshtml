@@ -1,8 +1,101 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <section class="home col-12">
+        <div class="settings col-4">
+            <div class="settings-title">
+                <h4 class="title-text">Connections Settings</h4>
+            </div>
+            <div class="settings-box">
+                <div class="settings-box__title">VK</div>
+                <div class="settings-box__form">
+                    <form class="settings-form form-vk" id="#" method="post" enctype="multipart/form-data">
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                        <div>
+                            <label id="#" class="alert-danger m-1"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="settings-box">
+                <div class="settings-box__title">Facebook</div>
+                <div class="settings-box__form">
+                    <form class="settings-form form-facebook" id="#" method="post" enctype="multipart/form-data">
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                        <div>
+                            <label id="#" class="alert-danger m-1"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="settings-box">
+                <div class="settings-box__title">Twitter</div>
+                <div class="settings-box__form">
+                    <form class="settings-form form-twitter" id="#" method="post" enctype="multipart/form-data">
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
+                        <input @*asp-for=""*@ class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                        <div>
+                            <label id="#" class="alert-danger m-1"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content col-8">
+            <div class="content-title">
+                <h4 class="title-text">Content</h4>
+            </div>
+
+            <div class="content-block content-image">
+                <div class="content-text">Image</div>
+                <input type="file" class="content-input content-image-input">
+            </div>
+
+            <div class="content-block content-title">
+                <div class="content-text">Title</div>
+                <input type="text" class="content-input content-title-input">
+            </div>
+
+            <div class="content-block content-image">
+                <div class="content-text mar-bt">Description</div>
+                <input type="text" class="content-input content-description-input">
+                @*<div class="address-delivery__comment">
+                    <textarea name="comment" class="content-description-input" cols="30" row="4" placeholder="Write your comment" value="" style="padding-top:13px"></textarea>
+                </div>*@
+            </div>
+
+            <button type="submit" class="button-btn btn-content auth" id="#">SEND</button>
+
+        </div>
+    </section>
+
+    <div class="social-block">
+        <ul class="social">
+            <li class="social__item vk">
+                <img class="vk-image" src="~/img/vk.svg" alt="vk" />
+                <i class="fa fa-vk"></i>
+            </li>
+            <li class="social__item facebook">
+                <img class="facebook-image" src="~/img/facebook.svg" alt="facebook" />
+                <i class="fa fa-facebook"></i>
+            </li>
+            <li class="social__item twitter">
+                <img class="twitter-image" src="~/img/twitter.svg" alt="twitter" />
+                <i class="fa fa-twitter"></i>
+            </li>
+        </ul>
+    </div>
+
 </div>
