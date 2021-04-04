@@ -2,5 +2,6 @@
 {
     public class VkViewModel : BaseViewModel
     {
+        public ulong UserId { get; set; }
     }
 }

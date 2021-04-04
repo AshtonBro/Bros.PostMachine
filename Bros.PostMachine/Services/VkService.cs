@@ -1,6 +1,8 @@
-﻿using Bros.PostMachine.Models;
+﻿using Bros.PostMachine.Helpers;
+using Bros.PostMachine.Models;
+using Microsoft.AspNetCore.Http;
 using System;
-using System.Net;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -16,13 +18,13 @@ namespace Bros.PostMachine.Services
             vkApi = new VkNet.VkApi();
         }
 
-        private bool Authorize(VkViewModel vkViewModel)
+        private static bool Authorize(VkViewModel vkViewModel)
         {
             var result = ulong.TryParse(vkViewModel.ApplicationId, out var apllicationId);
 
             if (!result)
             {
-                throw new InvalidCastException("ApplicationId must be ulong type");
+                return false;
             }
 
             var autParams = new ApiAuthParams()
@@ -42,7 +44,7 @@ namespace Bros.PostMachine.Services
 
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -55,49 +57,54 @@ namespace Bros.PostMachine.Services
                 return false;
             }
 
-            var uploadServer = vkApi.Photo.GetMessagesUploadServer(384675898);
-
-            // Загрузить картинку на сервер VK.
-            var response = UploadFile(uploadServer.UploadUrl, "https://www.gstatic.com/webp/gallery/1.jpg", "jpg");
-
-            // Сохранить загруженный файл
-            var attachment = vkApi.Photo.SaveMessagesPhoto(response);
-
-            var wallParams = new VkNet.Model.RequestParams.WallPostParams()
+            try
             {
-                Attachments = attachment,
-                Message = contentViewModel.Message
-            };
+                var wallParams = new VkNet.Model.RequestParams.WallPostParams();
 
-            vkApi.Wall.Post(wallParams);
+                if (contentViewModel.Image != null)
+                {
+                    var uploadServer = vkApi.Photo.GetWallUploadServer();
 
-            return true;
+                    var extension = Path.GetExtension(contentViewModel.Image.FileName);
+
+                    // Загрузить картинку на сервер VK.
+                    var response = UploadFile(uploadServer.UploadUrl, contentViewModel.Image, extension);
+
+                    // Сохранить загруженный файл
+                    var attachment = vkApi.Photo.SaveWallPhoto(response, vkViewModel.UserId);
+
+                    wallParams.Attachments = attachment;
+                }
+
+                wallParams.Message = contentViewModel.Message;
+
+                vkApi.Wall.Post(wallParams);
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        private string UploadFile(string serverUrl, string file, string fileExtension)
+        private string UploadFile(string serverUrl, IFormFile file, string fileExtension)
         {
-            // Получение массива байтов из файла
-            var data = GetBytes(file);
+            var data = file.GetBytes();
 
-            // Создание запроса на загрузку файла на сервер
             using (var client = new HttpClient())
             {
                 var requestContent = new MultipartFormDataContent();
+
                 var content = new ByteArrayContent(data);
                 content.Headers.ContentType = MediaTypeHeaderValue.Parse("multipart/form-data");
-                requestContent.Add(content, "file", $"file.{fileExtension}");
+                requestContent.Add(content, "file", $"file{fileExtension}");
 
                 var response = client.PostAsync(serverUrl, requestContent).Result;
+
                 return Encoding.Default.GetString(response.Content.ReadAsByteArrayAsync().Result);
             }
         }
 
-        private byte[] GetBytes(string fileUrl)
-        {
-            using (var webClient = new WebClient())
-            {
-                return webClient.DownloadData(fileUrl);
-            }
-        }
     }
 }

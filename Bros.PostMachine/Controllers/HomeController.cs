@@ -13,15 +13,17 @@ namespace Bros.PostMachine.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
+            CustomSettings.Instance.Save();
             _logger = logger;
         }
 
         public IActionResult Index()
         {
-            var socialViewModel = new SocialViewModel();
+            var socialViewModel = new SocialNetWorksViewModel();
 
             socialViewModel.VkViewModel = new VkViewModel()
             {
+                UserId = CustomSettings.Instance.VkUserId,
                 Login = CustomSettings.Instance.VkLogin,
                 Password = CustomSettings.Instance.VkPassword,
                 ApplicationId = CustomSettings.Instance.VkApplicationId,

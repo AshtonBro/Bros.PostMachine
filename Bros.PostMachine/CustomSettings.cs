@@ -36,24 +36,41 @@ namespace Bros.PostMachine
         public CustomSettings()
         {
             var file = CurrentFile;
+
             if (!file.Exists)
+            {
                 Save();
+            }
             else
+            {
                 Reload();
+            }
         }
 
-        
-        
+        public ulong VkUserId { get; set; } = 0;
+        public string VkLogin { get; set; } = "";
+        public string VkPassword { get; set; } = "";
+        public string VkAccessToken { get; set; } = "";
+        public string VkApplicationId { get; set; } = "";
+
         public void Save()
         {
             lock (LockObject)
             {
                 var file = CurrentFile;
+
                 if (file.Exists)
+                {
                     file.Delete();
+                }
+
                 var stream = file.Create();
-                var lines = this.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance).Select(f => $"{f.Name}={f.GetValue(this)}");
+
+                var lines = this.GetType().GetProperties(BindingFlags.Public |
+                    BindingFlags.Instance).Select(f => $"{f.Name}={f.GetValue(this)}");
+
                 var bytes = Encoding.ASCII.GetBytes(string.Join(Environment.NewLine, lines));
+
                 stream.Write(bytes);
                 stream.Close();
             }
@@ -65,6 +82,7 @@ namespace Bros.PostMachine
             {
                 var file = CurrentFile;
                 var lines = System.IO.File.ReadLines(file.FullName);
+
                 foreach (string f in lines)
                 {
                     try
@@ -72,13 +90,18 @@ namespace Bros.PostMachine
                         var result = string.Empty;
                         result = f.Split("//").FirstOrDefault();
                         result = result.Trim();
+
                         if ((string.IsNullOrWhiteSpace(result)))
                             continue;
+
                         if (!f.Contains("="))
                             Console.WriteLine($"Bad setting: {result}");
+
                         var prop = this.GetType().GetProperty(result.Split("=").First().Trim());
+
                         if (prop == null)
                             Console.WriteLine($"Invalid setting: {result}");
+
                         object val = result.Split("=").Last().Trim();
 
                         var parser = prop.PropertyType.GetMethods(BindingFlags.Public | BindingFlags.Static)

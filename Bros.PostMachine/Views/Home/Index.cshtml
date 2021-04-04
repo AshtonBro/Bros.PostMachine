@@ -1,7 +1,7 @@
-﻿@model Bros.PostMachine.Models.SocialViewModel
+﻿@model Bros.PostMachine.Models.SocialNetWorksViewModel
 
 <div class="container">
-    <form class="settings-form form-vk" id="#" method="post" enctype="multipart/form-data" asp-controller="Content" asp-action="Index">
+    <form class="settings-form form-vk" id="#" method="post" enctype="multipart/form-data" asp-controller="Publish" asp-action="Index">
         <section class="home col-12">
             <div class="settings col-4">
                 <div class="settings-title">
@@ -13,21 +13,26 @@
                     <div class="settings-box__title">VK</div>
                     <div class="settings-box__form">
                         <div>
+                            <input asp-for="@Model.VkViewModel.UserId" class="input-form-setting" placeholder="User Id" id="usertxt" type="text" />
+                            @*<span asp-validation-for="@Model.VkViewModel.ApplicationId" class="span-form-setting"></span>*@
+                        </div>
+                        <div>
                             <input asp-for="@Model.VkViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                            <span asp-validation-for="@Model.VkViewModel.Login" class="span-form-setting"></span>
+                            @*<span asp-validation-for="@Model.VkViewModel.Login" class="span-form-setting"></span>*@
                         </div>
                         <div>
                             <input asp-for="@Model.VkViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
-                            <span asp-validation-for="@Model.VkViewModel.Password" class="span-form-setting"></span>
+                            @*<span asp-validation-for="@Model.VkViewModel.Password" class="span-form-setting"></span>*@
                         </div>
                         <div>
                             <input asp-for="@Model.VkViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
-                            <span asp-validation-for="@Model.VkViewModel.AccessToken" class="span-form-setting"></span>
+                            @*<span asp-validation-for="@Model.VkViewModel.AccessToken" class="span-form-setting"></span>*@
                         </div>
                         <div>
                             <input asp-for="@Model.VkViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
-                            <span asp-validation-for="@Model.VkViewModel.ApplicationId" class="span-form-setting"></span>
+                            @*<span asp-validation-for="@Model.VkViewModel.ApplicationId" class="span-form-setting"></span>*@
                         </div>
+
                         <div>
                             <label id="#" class="alert-danger m-1"></label>
                         </div>
@@ -50,10 +55,10 @@
                 <div class="settings-box">
                     <div class="settings-box__title">Twitter</div>
                     <div class="settings-box__form">
-                        <input asp-for="@Model.TwitterViewModel.Login" class="input-form-setting" placeholder="Login" id="logintxt" type="text" />
-                        <input asp-for="@Model.TwitterViewModel.Password" class="input-form-setting" placeholder="Password" id="passwordtxt" type="password" />
+                        <input asp-for="@Model.TwitterViewModel.Login" class="input-form-setting" placeholder="Cunsumer Key" id="logintxt" type="text" />
+                        <input asp-for="@Model.TwitterViewModel.Password" class="input-form-setting" placeholder="Cunsumer Secret" id="passwordtxt" type="text" />
                         <input asp-for="@Model.TwitterViewModel.AccessToken" class="input-form-setting" placeholder="Access Token" id="tokentxt" type="text" />
-                        <input asp-for="@Model.TwitterViewModel.ApplicationId" class="input-form-setting" placeholder="Application ID" id="applicationtxt" type="text" />
+                        <input asp-for="@Model.TwitterViewModel.ApplicationId" class="input-form-setting" placeholder="Access Token Secret" id="applicationtxt" type="text" />
                         <div>
                             <label id="#" class="alert-danger m-1"></label>
                         </div>
@@ -78,9 +83,7 @@
 
                 <div class="content-block content-image">
                     <div class="content-text">Message</div>
-                    @*<input asp-for="@Model.ContentViewModel.Message" type="text" class="content-input content-description-input" value="">*@
                     @Html.TextAreaFor(model => model.ContentViewModel.Message, new { cols = 50, @rows = 10, @class = "content-input content-description-input" })
-                    @*<textarea asp-for="@Model.ContentViewModel.Message" type="text" class="content-input content-description-input" cols="50" row="10" placeholder="Write your comment" value="" style="padding-top:13px"></textarea>*@
                 </div>
                 <div>
                     <label id="#" class="alert-danger m-1"></label>
@@ -110,8 +113,9 @@
     </form>
 </div>
 
-@section scripts{
+
+@*@section scripts{
 
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}
+}*@
