@@ -215,25 +215,29 @@ body {
 }
 
 .content-image-input {
-    width: 72px;
+    width: 71px;
 }
 
-.content-image-input::before {
-    content: 'add files';
-    display: inline-block;
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
-    border: 1px solid #999;
-    border-radius: 3px;
-    padding: 5px 8px;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    cursor: pointer;
-    color: #FFFFFF;
-    font-weight: 700;
-    font-size: 10pt;
-    background-color: #8d64a0;
-}
+    .content-image-input:hover {
+        background-color: rgba(149, 51, 165, 0.25);
+    }
+
+    .content-image-input::before {
+        content: 'add files';
+        display: inline-block;
+        background: linear-gradient(top, #f9f9f9, #e3e3e3);
+        border: 1px solid #999;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 10pt;
+        background-color: #8d64a0;
+    }
 
 .content-image-input:hover::before {
     border-color: black;
@@ -249,6 +253,7 @@ body {
     width: 150px;
     color: #FFFFFF;
     margin-top: 32px;
+    margin-bottom: 32px;
     border: 1px solid #382d36;
 }
 
@@ -349,7 +354,6 @@ body {
     width: 48px;
 }
 
-
 /*.fa-twitter:before {
     content: url("../img/vk.png");
     height: 10px;
@@ -363,3 +367,11 @@ body {
 .fa-facebook:before {
     content: "\f099";
 }*/
+
+.error-block {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #B28ACB;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px #afc3fb;
+}
