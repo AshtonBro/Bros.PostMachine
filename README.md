@@ -1,10 +1,9 @@
-# POSTMACHINE <img src="https://www.freepnglogos.com/uploads/telegram-logo-4.png" width=40 higth=40/> 
-<h3> (RU) Данное приложение используется для публикации поста в социальных сетях. <br> Упрощает и автоматизирует создание инфо-постов. Нажатием  одной кнопки вы публикуете запись в тех социальных сетях, которые были отмечены в нижней части интерфейса приложения. </h3>
+# POSTMACHINE
+<h2> It is a tool for sending announcements of activities. </h2>
 
-<p>
-  <img src="http://dl4.joxi.net/drive/2021/08/08/0023/3726/1527438/38/20f2615bdb.jpg" />
-</p>
+![spudnik](https://github.githubassets.com/images/modules/profile/profile-first-issue-dark.svg)
 
+<<<<<<< HEAD
 ---
 ## <img src="https://kuzina.ru/wp-content/uploads/2019/01/480px-VK.com-logo.svg_-282x282.png" width=25 higth=25/> Пример поста в VK.
 
@@ -23,3 +22,6 @@
 2. Указать в классе CustomSettings.cs путь для чтения вашего файла. <br>
 или :arrow_right_hook: запустить приложение F5 и после прописать все значения в поля интерфейса приложения.
 4. Нажать F5.
+=======
+<img align="left" width="100" height="100" src="https://i.pinimg.com/originals/00/80/3b/00803bd1621e40cd56883394a885f145.png">  <img align="left" width="100" height="100" src="https://opensmm.asia/wp-content/uploads/2019/10/facebook-icon-preview-1.png"> <img align="left" width="100" height="100" src="https://cdn.worldvectorlogo.com/logos/vk-1.svg"> 
+>>>>>>> 3c9ffbc (Delete .gitignore)
