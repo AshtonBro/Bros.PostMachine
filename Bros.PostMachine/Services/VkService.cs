@@ -1,12 +1,12 @@
-﻿using Bros.PostMachine.Helpers;
-using Bros.PostMachine.Models;
-using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using VkNet.Model;
+using Bros.PostMachine.Helpers;
+using Bros.PostMachine.Models;
 
 namespace Bros.PostMachine.Services
 {
@@ -88,7 +88,7 @@ namespace Bros.PostMachine.Services
             }
         }
 
-        private string UploadFile(string serverUrl, IFormFile file, string fileExtension)
+        private static string UploadFile(string serverUrl, IFormFile file, string fileExtension)
         {
             var data = file.GetBytes();
 

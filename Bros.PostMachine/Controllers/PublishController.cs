@@ -1,6 +1,6 @@
-﻿using Bros.PostMachine.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using Bros.PostMachine.Models;
 using Bros.PostMachine.Services;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Bros.PostMachine.Controllers
 {

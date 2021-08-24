@@ -1,7 +1,7 @@
-﻿using Bros.PostMachine.Models;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Diagnostics;
+using Bros.PostMachine.Models;
 
 namespace Bros.PostMachine.Controllers
 {
